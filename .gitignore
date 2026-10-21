@@ -1,0 +1,26 @@
+# KiCad EDA temporary & backup files
+*.bak
+*.kicad_prb
+_autosave-*
+*.lck
+fp-info-cache
+*.net
+
+# KiCad manufacturing & temporary outputs (keep gerbers in formal release/ folder)
+*.drl
+*.gbrjob
+*.pos
+*.rpt
+
+# OS & Editor generated files
+.DS_Store
+Thumbs.db
+*.swp
+*.bak
+*~
+.vscode/
+.idea/
+
+# Office lock files
+.~lock.*
+~$*
