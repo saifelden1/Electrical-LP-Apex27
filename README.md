@@ -1,75 +1,40 @@
-# Apex Racing Team — Electrical Low Voltage (LV) Systems Learning Phase
+# Week 6 — Vehicle LV Architecture & Shutdown Circuit (SDC)
 
-[![Platform](https://img.shields.io/badge/CAD-KiCad%208.0+-blue.svg)](https://www.kicad.org)
-[![Subsystem](https://img.shields.io/badge/System-Low%20Voltage%20(LV)%20%26%20DAQ-darkgreen.svg)](#)
-[![Standards](https://img.shields.io/badge/Standards-IPC--2152%20%7C%20FS%20Rules-orange.svg)](#)
-[![Harnessing](https://img.shields.io/badge/Wiring-Raychem%20DR--25%20%7C%20Deutsch%20DT-brightgreen.svg)](#)
+[![Week](https://img.shields.io/badge/Week-6%20of%206-blue.svg)](#)
+[![Focus](https://img.shields.io/badge/Focus-LV%20Architecture%20%7C%20Shutdown%20Circuit-brightgreen.svg)](#)
+[![Task](https://img.shields.io/badge/Task-task--3--harness--sdc-orange.svg)](#)
 
-Welcome to the **Apex Racing Team** Electrical Low Voltage (LV) Systems Onboarding & Training Track. This training program is designed to develop foundational engineering proficiency in low-voltage vehicle electronics, circuit protection, sensor data acquisition (DAQ) signal conditioning, printed circuit board (PCB) design using **KiCad 8.0**, and motorsport-grade wiring harness fabrication.
-
----
-
-## Repository Structure & Curriculum Map
-
-All weekly learning guides and hands-on milestone tasks are organized into isolated Git branches and mirrored directly inside local directories on `main` for instant navigation:
-
-```bash
-git clone https://github.com/saifelden1/Electrical-LP-Apex27.git
-cd Electrical-LP-Apex27
-```
-
-### 6-Week Curriculum Roadmap & Materials
-| Week | Module | Assigned Materials | Core Focus Areas | Local Directory | Branch |
-| :--- | :--- | :---: | :--- | :--- | :--- |
-| **Week 1** | Fundamentals & KiCad Intro | **4 Videos** (~1.2h) | Ohm's/Kirchhoff's Laws, Resistor ratings, Voltage dividers, KiCad 8.0 schematic setup & ERC | [`Weeks/Week-1-Electrical-Basics/`](Weeks/Week-1-Electrical-Basics/) | `week-1-electrical-basics` |
-| **Week 2** | Components & Switching | **5 Videos** (~1.5h) | Capacitors, Inductors & flyback diodes, Relays vs Power MOSFETs ($R_{DS(on)}$, $V_{GS}$), E-Stop switches | [`Weeks/Week-2-Components-Switching/`](Weeks/Week-2-Components-Switching/) | `week-2-components-switching` |
-| **Week 3** | Protection & Wire Sizing | **5 Videos** (~1.5h) | Fuse selection, Wire gauge ($AWG/mm^2$) coordination, P-MOSFET reverse polarity, TVS diodes | [`Weeks/Week-3-Protection-Safety/`](Weeks/Week-3-Protection-Safety/) | `week-3-protection-safety` |
-| **Week 4** | Power Distribution & Harness | **5 Videos** (~1.5h) | LV power budgeting (peak/continuous), Automotive harness routing, Deutsch DT crimping, Star ground | [`Weeks/Week-4-Power-Harnessing/`](Weeks/Week-4-Power-Harnessing/) | `week-4-power-harnessing` |
-| **Week 5** | Sensors, DAQ & KiCad PCB | **6 Videos** (~1.8h) | Analog front-ends (scaling, RC filtering), Noise/EMI shielding, KiCad 2-layer PCB layout & IPC-2152 | [`Weeks/Week-5-Sensors-DAQ-PCB/`](Weeks/Week-5-Sensors-DAQ-PCB/) | `week-5-sensors-daq-pcb` |
-| **Week 6** | Vehicle LV Architecture & SDC | **4 Videos** (~1.2h) | Formula Student EV LV vs HV, Shutdown Circuit (SDC) loop, ECU pinouts, Dual-MCU/Embedded interface | [`Weeks/Week-6-Vehicle-LV-Integration/`](Weeks/Week-6-Vehicle-LV-Integration/) | `week-6-vehicle-lv-integration` |
-
-### Practical Milestone Tasks (Hardware & CAD Deliverables)
-| Task | Target Systems | Key Deliverable | Local Directory | Branch |
-| :--- | :--- | :--- | :--- | :--- |
-| **Task 1: PDU Input Protection** | Fuse, P-MOSFET, TVS | KiCad schematic of complete input protection stage, ERC verification, wire/fuse calculation sheet | [`Tasks/Task-1-PDU-Protection/`](Tasks/Task-1-PDU-Protection/) | `task-1-pdu-protection` |
-| **Task 2: Sensor DAQ PCB Layout** | 4-Ch Analog Front-End | 2-layer KiCad PCB layout, RC low-pass filters, IPC-2152 trace widths, DRC pass, Gerber exports | [`Tasks/Task-2-DAQ-PCB/`](Tasks/Task-2-DAQ-PCB/) | `task-2-daq-pcb` |
-| **Task 3: Vehicle Harness & SDC** | Full LV System, E-Stops | Complete vehicle LV wiring schematic, Shutdown Circuit (SDC) loop, ECU pinout spec, crimp log | [`Tasks/Task-3-Harness-SDC/`](Tasks/Task-3-Harness-SDC/) | `task-3-harness-sdc` |
+Welcome to **Week 6** (Capstone Week) of the Apex Racing Team Electrical Low Voltage Onboarding Track.
 
 ---
 
-## Master Spreadsheet Roadmap (`APEX_Electric_Learning_Plan.xlsx`)
-
-The repository root includes a comprehensive planning workbook structured with:
-1. **`6_Week_Curriculum`**: High-contrast, screenshot-ready overview with video counts and watch times for team announcement channels.
-2. **`Resource_Directory`**: Central indexed table of all video tutorials, KiCad 8.0 guides, IPC standards, and Formula Student rules.
-3. **`W1_Daily_Operations` – `W6_Daily_Operations`**: Actionable day-by-day operations following the proven 7-day cadence (Main sessions, Live whiteboard, KiCad design, Offline workshop, Deliverable submission, Oral review).
-4. **`Suggestions_and_Rules`**: Formula Student LV scrutineering rules and motorsport design best practices.
-
----
-
-## Training Philosophy & Oral Defense Policy
-
-> [!IMPORTANT]
-> **Engineering Rigor & Oral Defense Standard**
-> * Using AI tools (Claude, ChatGPT, Gemini, etc.) as research assistants and calculation checkers is **permitted and encouraged**.
-> * **However**, submitting schematics, PCB layouts, or wire calculations without complete first-principles comprehension is strictly disqualified.
-> * **Every candidate will participate in an individual 1-on-1 technical oral defense where you must explain and justify every component value, trace width, fuse rating, and layout decision in your submission.**
-> * If you cannot clearly defend why a capacitor value was chosen, how trace heating was calculated, or how the shutdown circuit remains fail-safe, the milestone will not be accepted.
+## Weekly Objectives
+1. **Formula Student EV Electrical Architecture**: Low-Voltage (LV) control system vs High-Voltage (HV) tractive system; galvanic isolation barriers.
+2. **The Shutdown Circuit (SDC) Loop**: Series normally closed (NC) safety loop controlling accumulator isolation relays (AIRs).
+3. **Safety Interlocks**: Cockpit Emergency Stop, External Emergency Stops, Inertia Switch ($6\text{g}$ mechanical), BSPD, IMD latch, and Brake Over-Travel Switch (BOTS).
+4. **LV Charging & DC-DC Regulation**: Auxiliary charger connection, DC-DC converter regulation from HV to LV battery.
+5. **Electrical-to-Embedded Integration**: Master ECU connector pinout tables, wire colors, signal matching, and documentation handoff.
 
 ---
 
-## Required Submission Package
+## Daily Operational Guide & Curated Links
 
-For each completed milestone task, candidates must submit:
-1. **KiCad Project Files**: Complete `.kicad_pro`, `.kicad_sch`, and `.kicad_pcb` files passing ERC and DRC with **0 errors**.
-2. **Manufacturing Deliverables (Gerbers)**: For PCB tasks, complete RS-274X Gerber layers and Excellon drill files.
-3. **Engineering Calculations**: Detailed math for power budgets, wire sizing ($I_{wire} > I_{fuse}$), voltage drops, and filter cutoffs ($f_c$).
-4. **Physical / Simulation Proof**: Clear photos/videos of breadboard measurements, crimp pull-tests, or multimeter testing.
-5. **Technical Report**: Completed [`Template_Report.md`](Tasks/Task-1-PDU-Protection/Template_Report.md) documenting design choices and troubleshooting logs.
-
----
-
-## Toolchain & CAD Setup
-* **CAD Software**: [KiCad 8.0 or newer](https://www.kicad.org/download/).
-* **Standards Reference**: IPC-2152 (Trace sizing for current and temperature rise).
-* **Hand Tools (Workshop)**: Digital multimeter, wire strippers, ratcheting crimpers (open-barrel & Deutsch), heat gun.
+* **Day 1 (Monday) — Vehicle Electrical Architecture**:
+  * 📺 [Formula Student EV Architecture Overview](https://www.youtube.com/watch?v=9X9Y1v2W3zA)
+  * Draw high-level block diagram of vehicle LV subsystems (PDU, DAQ, ECU, Dashboard).
+* **Day 2 (Tuesday) — Shutdown Circuit (SDC) Deep-Dive**:
+  * 📺 [Formula Student Shutdown Circuit Design](https://www.youtube.com/watch?v=4Y9Z2v8W1xA)
+  * Trace SDC loop; verify all switches are series NC and explain fail-safe behavior on wire break.
+* **Day 3 (Wednesday) — Live Session: Task 3 Full Harness Integration**:
+  * 45-min live session: Task 3 vehicle harness schematic and master ECU pinout documentation.
+  * Task specifications: [`Tasks/Task-3-Harness-SDC/README.md`](../../Tasks/Task-3-Harness-SDC/README.md)
+* **Day 4 (Thursday) — ECU Pinout Specification**:
+  * 📺 [ECU Pinouts & Wire Schedule Spec](https://www.youtube.com/watch?v=6X7Z1v8W2yB)
+  * Complete connector pinout schedule matching electrical harness wires to embedded firmware pins.
+* **Day 5 (Friday) — Offline Workshop Day**:
+  * Meet at team workshop: physical mock-up review of harness routing and bench testing the SDC loop.
+  * Verify safety trip operation when each E-Stop and the inertia switch is tripped.
+* **Day 6 (Saturday) — Final Capstone Deadline (Task 3)**:
+  * Submit full Task 3 Capstone package: vehicle LV schematic + SDC loop + wire schedule + report by 11:59 PM.
+* **Day 7 (Sunday) — Capstone Oral Code Defense**:
+  * 15-minute 1-on-1 Capstone defense covering all 6 weeks of electrical curriculum.
