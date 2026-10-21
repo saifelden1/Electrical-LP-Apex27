@@ -1,75 +1,39 @@
-# Apex Racing Team — Electrical Low Voltage (LV) Systems Learning Phase
+# Week 4 — LV Power Distribution (PDU) & Harness Crimping
 
-[![Platform](https://img.shields.io/badge/CAD-KiCad%208.0+-blue.svg)](https://www.kicad.org)
-[![Subsystem](https://img.shields.io/badge/System-Low%20Voltage%20(LV)%20%26%20DAQ-darkgreen.svg)](#)
-[![Standards](https://img.shields.io/badge/Standards-IPC--2152%20%7C%20FS%20Rules-orange.svg)](#)
-[![Harnessing](https://img.shields.io/badge/Wiring-Raychem%20DR--25%20%7C%20Deutsch%20DT-brightgreen.svg)](#)
+[![Week](https://img.shields.io/badge/Week-4%20of%206-blue.svg)](#)
+[![Focus](https://img.shields.io/badge/Focus-PDU%20%7C%20Harnessing%20%7C%20Crimping-brightgreen.svg)](#)
 
-Welcome to the **Apex Racing Team** Electrical Low Voltage (LV) Systems Onboarding & Training Track. This training program is designed to develop foundational engineering proficiency in low-voltage vehicle electronics, circuit protection, sensor data acquisition (DAQ) signal conditioning, printed circuit board (PCB) design using **KiCad 8.0**, and motorsport-grade wiring harness fabrication.
+Welcome to **Week 4** of the Apex Racing Team Electrical Low Voltage Onboarding Track.
 
 ---
 
-## Repository Structure & Curriculum Map
-
-All weekly learning guides and hands-on milestone tasks are organized into isolated Git branches and mirrored directly inside local directories on `main` for instant navigation:
-
-```bash
-git clone https://github.com/saifelden1/Electrical-LP-Apex27.git
-cd Electrical-LP-Apex27
-```
-
-### 6-Week Curriculum Roadmap & Materials
-| Week | Module | Assigned Materials | Core Focus Areas | Local Directory | Branch |
-| :--- | :--- | :---: | :--- | :--- | :--- |
-| **Week 1** | Fundamentals & KiCad Intro | **4 Videos** (~1.2h) | Ohm's/Kirchhoff's Laws, Resistor ratings, Voltage dividers, KiCad 8.0 schematic setup & ERC | [`Weeks/Week-1-Electrical-Basics/`](Weeks/Week-1-Electrical-Basics/) | `week-1-electrical-basics` |
-| **Week 2** | Components & Switching | **5 Videos** (~1.5h) | Capacitors, Inductors & flyback diodes, Relays vs Power MOSFETs ($R_{DS(on)}$, $V_{GS}$), E-Stop switches | [`Weeks/Week-2-Components-Switching/`](Weeks/Week-2-Components-Switching/) | `week-2-components-switching` |
-| **Week 3** | Protection & Wire Sizing | **5 Videos** (~1.5h) | Fuse selection, Wire gauge ($AWG/mm^2$) coordination, P-MOSFET reverse polarity, TVS diodes | [`Weeks/Week-3-Protection-Safety/`](Weeks/Week-3-Protection-Safety/) | `week-3-protection-safety` |
-| **Week 4** | Power Distribution & Harness | **5 Videos** (~1.5h) | LV power budgeting (peak/continuous), Automotive harness routing, Deutsch DT crimping, Star ground | [`Weeks/Week-4-Power-Harnessing/`](Weeks/Week-4-Power-Harnessing/) | `week-4-power-harnessing` |
-| **Week 5** | Sensors, DAQ & KiCad PCB | **6 Videos** (~1.8h) | Analog front-ends (scaling, RC filtering), Noise/EMI shielding, KiCad 2-layer PCB layout & IPC-2152 | [`Weeks/Week-5-Sensors-DAQ-PCB/`](Weeks/Week-5-Sensors-DAQ-PCB/) | `week-5-sensors-daq-pcb` |
-| **Week 6** | Vehicle LV Architecture & SDC | **4 Videos** (~1.2h) | Formula Student EV LV vs HV, Shutdown Circuit (SDC) loop, ECU pinouts, Dual-MCU/Embedded interface | [`Weeks/Week-6-Vehicle-LV-Integration/`](Weeks/Week-6-Vehicle-LV-Integration/) | `week-6-vehicle-lv-integration` |
-
-### Practical Milestone Tasks (Hardware & CAD Deliverables)
-| Task | Target Systems | Key Deliverable | Local Directory | Branch |
-| :--- | :--- | :--- | :--- | :--- |
-| **Task 1: PDU Input Protection** | Fuse, P-MOSFET, TVS | KiCad schematic of complete input protection stage, ERC verification, wire/fuse calculation sheet | [`Tasks/Task-1-PDU-Protection/`](Tasks/Task-1-PDU-Protection/) | `task-1-pdu-protection` |
-| **Task 2: Sensor DAQ PCB Layout** | 4-Ch Analog Front-End | 2-layer KiCad PCB layout, RC low-pass filters, IPC-2152 trace widths, DRC pass, Gerber exports | [`Tasks/Task-2-DAQ-PCB/`](Tasks/Task-2-DAQ-PCB/) | `task-2-daq-pcb` |
-| **Task 3: Vehicle Harness & SDC** | Full LV System, E-Stops | Complete vehicle LV wiring schematic, Shutdown Circuit (SDC) loop, ECU pinout spec, crimp log | [`Tasks/Task-3-Harness-SDC/`](Tasks/Task-3-Harness-SDC/) | `task-3-harness-sdc` |
+## Weekly Objectives
+1. **Low-Voltage Power Budgeting**: Calculating total vehicle LV current load (continuous vs inrush peak), battery sizing ($Ah$) and runtime margin.
+2. **Automotive Harness Construction**: Cable routing away from sharp edges and heat; protective sleeving (Raychem DR-25, braided loom); strain relief.
+3. **Automotive Connectors**: Sealed Deutsch DT/DTM series, Molex Micro-Fit 3.0; terminal families and pin extraction.
+4. **Crimping Standards**: Open-barrel vs closed-barrel crimps, ratcheting crimp tooling, pull-force testing standards.
+5. **Power Distribution (PDU) Architecture**: Fused branch circuits, relay control, and vehicle star-ground distribution.
 
 ---
 
-## Master Spreadsheet Roadmap (`APEX_Electric_Learning_Plan.xlsx`)
+## Daily Operational Guide & Curated Links
 
-The repository root includes a comprehensive planning workbook structured with:
-1. **`6_Week_Curriculum`**: High-contrast, screenshot-ready overview with video counts and watch times for team announcement channels.
-2. **`Resource_Directory`**: Central indexed table of all video tutorials, KiCad 8.0 guides, IPC standards, and Formula Student rules.
-3. **`W1_Daily_Operations` – `W6_Daily_Operations`**: Actionable day-by-day operations following the proven 7-day cadence (Main sessions, Live whiteboard, KiCad design, Offline workshop, Deliverable submission, Oral review).
-4. **`Suggestions_and_Rules`**: Formula Student LV scrutineering rules and motorsport design best practices.
-
----
-
-## Training Philosophy & Oral Defense Policy
-
-> [!IMPORTANT]
-> **Engineering Rigor & Oral Defense Standard**
-> * Using AI tools (Claude, ChatGPT, Gemini, etc.) as research assistants and calculation checkers is **permitted and encouraged**.
-> * **However**, submitting schematics, PCB layouts, or wire calculations without complete first-principles comprehension is strictly disqualified.
-> * **Every candidate will participate in an individual 1-on-1 technical oral defense where you must explain and justify every component value, trace width, fuse rating, and layout decision in your submission.**
-> * If you cannot clearly defend why a capacitor value was chosen, how trace heating was calculated, or how the shutdown circuit remains fail-safe, the milestone will not be accepted.
-
----
-
-## Required Submission Package
-
-For each completed milestone task, candidates must submit:
-1. **KiCad Project Files**: Complete `.kicad_pro`, `.kicad_sch`, and `.kicad_pcb` files passing ERC and DRC with **0 errors**.
-2. **Manufacturing Deliverables (Gerbers)**: For PCB tasks, complete RS-274X Gerber layers and Excellon drill files.
-3. **Engineering Calculations**: Detailed math for power budgets, wire sizing ($I_{wire} > I_{fuse}$), voltage drops, and filter cutoffs ($f_c$).
-4. **Physical / Simulation Proof**: Clear photos/videos of breadboard measurements, crimp pull-tests, or multimeter testing.
-5. **Technical Report**: Completed [`Template_Report.md`](Tasks/Task-1-PDU-Protection/Template_Report.md) documenting design choices and troubleshooting logs.
-
----
-
-## Toolchain & CAD Setup
-* **CAD Software**: [KiCad 8.0 or newer](https://www.kicad.org/download/).
-* **Standards Reference**: IPC-2152 (Trace sizing for current and temperature rise).
-* **Hand Tools (Workshop)**: Digital multimeter, wire strippers, ratcheting crimpers (open-barrel & Deutsch), heat gun.
+* **Day 1 (Monday) — LV Power Budgeting**:
+  * 📺 [Vehicle LV Power Budgeting & Battery Sizing](https://www.youtube.com/watch?v=vV7Y1M9X_p8)
+  * Build power budget table for vehicle ECUs, fans, pumps, and sensors; check battery capacity margin.
+* **Day 2 (Tuesday) — Harness Routing & Materials**:
+  * 📺 [Motorsport Wiring Harness Construction](https://www.youtube.com/watch?v=yXv7H_y8k5M)
+  * Plan harness routing on chassis drawing; specify heatshrink boots and breakout transitions.
+* **Day 3 (Wednesday) — Live Session: Connectors & PDU Architecture**:
+  * 45-min live session: connector selection, terminal crimping standards, and PDU schematic design.
+  * 📺 [Deutsch DT & DTM Connector Assembling](https://www.youtube.com/watch?v=8V7Z2K0P3w8)
+* **Day 4 (Thursday) — PDU Schematic in KiCad**:
+  * Draw multi-branch fused power distribution schematic in KiCad 8.0.
+  * Design central chassis star-grounding distribution block.
+* **Day 5 (Friday) — Offline Workshop Day (Hands-on Crimping)**:
+  * Meet at team workshop: hands-on crimping workshop with ratcheting tooling.
+  * Crimp 5 terminals and perform mechanical pull-test; inspect crimp wings under magnification.
+* **Day 6 (Saturday) — Week 4 Submission**:
+  * Submit LV power budget sheet + wiring diagram + crimp test log by 11:59 PM.
+* **Day 7 (Sunday) — Friendly 1-on-1 Oral Check-in**:
+  * 10-minute check-in: defend battery capacity margin and crimp quality inspection criteria.
